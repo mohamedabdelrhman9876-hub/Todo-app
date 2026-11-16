@@ -1,3 +1,4 @@
+import React from "react";
 import { useMemo, useState } from "react";
 import TodoFilters from "./components/TodoFilters";
 import TodoForm from "./components/TodoForm";
@@ -17,7 +18,7 @@ export default function App() {
     completed: todos.filter((todo) => todo.completed).length,
   };
 
-  const remaining = todos.filter((todo) => todo.completed).length;
+  const remaining = todos.filter((todo) => !todo.completed).length;
 
   const visible = useMemo(() => {
     const needle = query.trim();

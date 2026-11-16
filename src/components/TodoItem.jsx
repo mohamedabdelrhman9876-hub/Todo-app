@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function TodoItem({ todo, onToggle, onDelete, onUpdate }) {
   const [editing, setEditing] = useState(false);

@@ -1,6 +1,6 @@
-import React from "react";
 import TodoItem from "./TodoItem";
 
+import React, { useState } from "react";
 export default function TodoList({
   todos,
   onToggle,
@@ -9,7 +9,8 @@ export default function TodoList({
   emptyLabel,
   isListEmpty,
 }) {
-  if (todos.length === 0) {
+
+    if (!todos || todos.length === 0)  {
     return (
       <div className="empty">
         <p className="empty-title">{emptyLabel}</p>
@@ -26,6 +27,7 @@ export default function TodoList({
     <ul className="list">
       {todos.map((todo) => (
         <TodoItem
+          key={todo.id}     
           todo={todo}
           onToggle={onToggle}
           onDelete={onDelete}
